@@ -129,49 +129,7 @@ namespace Control_TempHum
 
         public void Button2_Click(object sender, EventArgs e)
         {
-            int c = 0;
-            int d = 1;
-
-            while (c < d) {
-                int count = 3;
-                // creamo sun vector de tamaño 3 porque vamos a recibir tres datos
-                string[] datossensor = new string[count];
-
-                // Llenar 
-
-
-                for (int i = 0; i < 3; i++)
-                {
-                    Console.Write("dato de sensor {0}: ", i);
-                    datossensor[i] = serialPort1.ReadLine();
-                   
-                }
-                
-
-
-
-                // Imprimirlo
-                Console.WriteLine("\nValores del vector:\n");
-                for (int i = 0; i < 3; i++)
-                {
-                    Console.WriteLine("Posicion {0}: {1}", i, datossensor[i]);
-                  
-
-                    textBox2.Text = datossensor[0];
-                    textBox3.Text = datossensor[1];
-                    textBox4.Text = datossensor[2];
-                    generartxt(datossensor[0], datossensor[1], datossensor[2]);
-
-                }
-               
-
-            }
-
-
-
-
-
-
+           
 
 
 
@@ -254,7 +212,44 @@ namespace Control_TempHum
 
         private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-          
+
+            int count = 3;
+            // creamo sun vector de tamaño 3 porque vamos a recibir tres datos
+            string[] datossensor = new string[count];
+
+            // Llenar 
+
+
+            for (int i = 0; i < 3; i++)
+            {
+                Console.Write("dato de sensor {0}: ", i);
+                datossensor[i] = serialPort1.ReadLine();
+
+            }
+
+
+
+
+            // Imprimirlo
+            Console.WriteLine("\nValores del vector:\n");
+            for (int i = 0; i < 3; i++)
+            {
+                Console.WriteLine("Posicion {0}: {1}", i, datossensor[i]);
+
+
+                textBox2.Text = datossensor[0];
+                textBox3.Text = datossensor[1];
+                textBox4.Text = datossensor[2];
+                generartxt(datossensor[0], datossensor[1], datossensor[2]);
+
+            }
+
+
+
+
+
+
+
         }
 
         private void label1_Click_1(object sender, EventArgs e)
